@@ -1,0 +1,30 @@
+Campus Marketplace Server Endpoints
+
+GET /
+  - Description: Health check / API root
+  - Response: { message: "Campus Marketplace API" }
+
+POST /api/auth/register
+  - Description: Register a new user
+  - Request body: { username, email, password }
+  - Response: { message, userId }
+
+POST /api/auth/login
+  - Description: Authenticate an existing user
+  - Request body: { email, password }
+  - Response: { id, name, email, created_at }
+
+POST /api/listings
+  - Description: Create a new marketplace listing
+  - Request body: { user_id, title, description, price, location, image }
+  - Response: { message, listingId }
+
+POST /api/messages
+  - Description: Send a message from one user to another
+  - Request body: { sender_id, receiver_id, message }
+  - Response: { message, messageId }
+
+GET /search?q=<query>
+  - Description: Search marketplace listings by title or description
+  - Query param: q
+  - Response: Array of listing objects
